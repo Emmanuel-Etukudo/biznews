@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class model {
+class NewsModel {
   String? status;
   int? totalResults;
   List<Articles>? articles;
 
-  model({this.status, this.totalResults, this.articles});
+  NewsModel({this.status, this.totalResults, this.articles});
 
-  model.fromJson(Map<String, dynamic> json) {
+  NewsModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
