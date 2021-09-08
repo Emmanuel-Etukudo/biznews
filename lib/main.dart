@@ -21,12 +21,16 @@ class MyApp extends StatelessWidget {
         body: FutureBuilder<List<Articles>?>(
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Text("No news available");
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
             if (snapshot.hasError) {
               return Text(snapshot.data.toString());
             }
-            return ListView.builder(itemBuilder: (context, index) {
+            return ListView.builder(
+                itemCount: 20,
+                itemBuilder: (context, index) {
               return ListTile(
                 leading: CircleAvatar(
                   backgroundImage: NetworkImage(
